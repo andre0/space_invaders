@@ -27,4 +27,9 @@ public class Player : MonoBehaviour
         Vector2 currentVelocity = playerRigidbody.velocity;
         playerRigidbody.velocity = new Vector2(movementX * speed, currentVelocity.y);
     }
+
+    void Shoot()
+    {
+
+    }
 }
