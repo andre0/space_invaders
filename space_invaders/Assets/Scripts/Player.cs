@@ -6,7 +6,8 @@ public class Player : MonoBehaviour
 {
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
-    private float speed = 6f;
+    private float speed = 7.5f;
+    public GameObject blasterPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Shoot");
+            Shoot();
+        }
     }
         
     void Move()
@@ -30,6 +37,8 @@ public class Player : MonoBehaviour
 
     void Shoot()
     {
-
+        GameObject blaster = Instantiate(blasterPrefab, this.transform.position, Quaternion.identity);
+        blaster.GetComponent<Rigidbody2D>().velocity = Vector2.up * 8;
+        
     }
 }
