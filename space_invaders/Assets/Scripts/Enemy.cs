@@ -1,15 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    //public GameObject[] enemies;
-
-    // Start is called before the first frame update
-    //public float speed;
-    //private Transform Enemies;
+    public UnityEvent onDeath;
     private Rigidbody2D enemyRigidbody;
     private Collider2D enemyCollider;
     public int points = 10;
@@ -33,7 +30,9 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collider.gameObject);
+
             // score += points;
+            onDeath.Invoke();
         }
     }
 
