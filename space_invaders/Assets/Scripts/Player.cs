@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
                     Shoot();
                 }
                 
-                fireRate = Time.time + 0.1f; // 1.3 is the firerate
+                fireRate = Time.time + 0.1f; 
             }
         }
     }

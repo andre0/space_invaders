@@ -6637,48 +6637,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5075109253000301463}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &2124782418
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124782417}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.015272272, y: -0.01618901}
-  m_Size: {x: 0.7703157, y: 2.056884}
-  m_Direction: 0
---- !u!61 &2124782419
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124782417}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.29641113}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 2.0666666}
-    newSize: {x: 2.25, y: 1.55}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3, y: 1.4738443}
-  m_EdgeRadius: 0
 --- !u!50 &2124782420
 Rigidbody2D:
   serializedVersion: 4
@@ -6724,6 +6682,7 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   blasterPrefab: {fileID: 3029039350024731054, guid: aa87bbaa652bc424aafcd42ca0b84aad,
     type: 3}
+  count: 0
 --- !u!61 &2124782424
 BoxCollider2D:
   m_ObjectHideFlags: 0
