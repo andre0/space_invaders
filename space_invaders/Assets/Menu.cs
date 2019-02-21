@@ -20,6 +20,11 @@ public class Menu : MonoBehaviour
     public void StartLevel()
     {
         SceneManager.LoadScene("level");
+
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void ExitGame()
