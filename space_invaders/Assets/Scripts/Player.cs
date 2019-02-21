@@ -60,11 +60,12 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("EnemyBlaster") || collision.CompareTag("Enemy"))
+        if (collision.CompareTag("EnemyBlaster"))
         {
             this.gameObject.SetActive(false);
 
             onLoseLife.Invoke();
+            
             
             Invoke("respawn", 3); // Respawn after 3 seconds
 
@@ -78,6 +79,7 @@ public class Player : MonoBehaviour
 
     void respawn()
     {
+        this.playerRigidbody.position = new Vector2(-2.25f, this.playerRigidbody.position.y);
         this.gameObject.SetActive(true);
     }
 

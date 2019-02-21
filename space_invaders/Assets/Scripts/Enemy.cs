@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D enemyRigidbody;
     private Collider2D enemyCollider;
+
     public int points = 10;
 
     private float randomFire = 0.0f;
@@ -48,7 +49,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             Destroy(collider.gameObject);
 
-            // score += points;
             onDeath.Invoke();
         }
     }
