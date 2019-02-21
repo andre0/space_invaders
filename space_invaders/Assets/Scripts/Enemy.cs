@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
         enemyRigidbody = GetComponent<Rigidbody2D>();
         enemyCollider = GetComponent<Collider2D>();
 
-        randomFire = Time.time + Random.Range(10.0f, 100.0f);
+        randomFire = Time.time + Random.Range(0.0f, 100.0f);
 
     }
 
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
     void Enemy_Shoot()
     {
         GameObject enemy_blaster = Instantiate(enemyBlasterPrefab, this.transform.position, Quaternion.identity);
-        enemy_blaster.GetComponent<Rigidbody2D>().velocity = Vector2.down * 8;
+        enemy_blaster.GetComponent<Rigidbody2D>().velocity = Vector2.down * 5;
         Physics2D.IgnoreCollision(enemyCollider, enemy_blaster.GetComponent<Collider2D>());
     }
 
