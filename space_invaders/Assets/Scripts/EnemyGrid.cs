@@ -12,8 +12,8 @@ public class EnemyGrid : MonoBehaviour
     void Start()
     {
         //enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        gridRigidbody = GetComponent<Rigidbody2D>();
-        Enemies = GetComponent<Transform>();
+        gridRigidbody = this.GetComponent<Rigidbody2D>();
+        Enemies = this.GetComponent<Transform>();
 
 
     }
@@ -34,7 +34,7 @@ public class EnemyGrid : MonoBehaviour
             if (enemy.position.x > 11.0 || enemy.position.x < -11.0)
             {
                 speed = (-1) * speed;
-                Enemies.position += Vector3.down * 0.5f;
+                Enemies.position += Vector3.down * 0.2f;
                 return;
             }
         }

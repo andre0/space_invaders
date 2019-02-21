@@ -6,36 +6,43 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager instance = null;
+    public static LevelManager instance;
 
     public int score = 0;
+    public int lives = 3;
 
     public IntUnityEvent onScoreUpdate = new IntUnityEvent();
+    public IntUnityEvent onLivesUpdate = new IntUnityEvent();
+
+    public Enemy[] enemies;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        enemies = FindObjectsOfType<Enemy>();
         
-    }
+        foreach(Enemy enemy in enemies)
+        {
+            enemy.onDeath.AddListener(() => UpdateScore(enemy.points));
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Player.instance.onLoseLife.AddListener(() => UpdateLives(--lives));
     }
 
     void UpdateScore(int addPoints)
     {
         score += addPoints;
-        onScoreUpdate.Invoke(addPoints);
+        onScoreUpdate.Invoke(score);
     }
 
-    void OnSceneLoaded(Scene loadedScene, LoadSceneMode sceneMode)
+    void UpdateLives(int newLives)
     {
-        Enemy enemyComponent = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
-        enemyComponent.onDeath.AddListener(() => UpdateScore(enemyComponent.points));
-
-        Debug.Log(loadedScene.name);
-        //UpdateScore(score);
+        lives = newLives;
+        onLivesUpdate.Invoke(newLives);
     }
-
 }

@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+
+    public UnityEvent onLoseLife;
+
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
     private float speed = 7.5f;
     public GameObject blasterPrefab;
-    private int lives = 3;
 
     private float fireRate;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -49,15 +58,27 @@ public class Player : MonoBehaviour
         Physics2D.IgnoreCollision(playerCollider, blaster.GetComponent<Collider2D>());
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag("EnemyBlaster"))
+        if (collision.CompareTag("EnemyBlaster") || collision.CompareTag("Enemy"))
         {
-            lives -= 1;
-            if (lives == 0)
-            {
-                // gameover
-            }
+            this.gameObject.SetActive(false);
+
+            onLoseLife.Invoke();
+            
+            Invoke("respawn", 3); // Respawn after 3 seconds
+
+            // Instantiate a new player?
+        }
+        else if (collision.CompareTag("Enemy"))
+        {
+            // game over
         }
     }
+
+    void respawn()
+    {
+        this.gameObject.SetActive(true);
+    }
+
 }

@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 7080188730198084823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.5, y: 3.53, z: 0}
-  m_LocalScale: {x: 1.1624008, y: 0.97234535, z: 1}
+  m_LocalScale: {x: 1.1624, y: 0.97235, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,9 +95,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d128d4d679ec24249adc798b5785af0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  speed: 5
-  points: 10
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  enemyBlasterPrefab: {fileID: 6710800458444332091, guid: 52b1424dd5b314f4aa11b0da19bbab09,
+    type: 3}
+  points: 20
 --- !u!50 &1065760552
 Rigidbody2D:
   serializedVersion: 4

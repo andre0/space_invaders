@@ -3,28 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextUI : MonoBehaviour
+public class ScoreText : MonoBehaviour
 {
     TextMeshProUGUI scoreText;
-    TextMeshProUGUI livesText;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreText = this.GetComponent<TextMeshProUGUI>();
 
-        LevelManager.instance.onScoreUpdate.AddListener(GetScore);
+        LevelManager.instance.onScoreUpdate.AddListener(UpdateScore);
 
-        GetScore(LevelManager.instance.score);
+        UpdateScore(LevelManager.instance.score);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void GetScore(int newScore)
+    void UpdateScore(int newScore)
     {
         scoreText.text = string.Format("Score: {0}", newScore);
     }
