@@ -80,7 +80,6 @@ public class Player : MonoBehaviour
 
     void respawn()
     {
-        this.playerRigidbody.position = new Vector2(-2.25f, this.playerRigidbody.position.y);
         this.gameObject.SetActive(true);
     }
 
