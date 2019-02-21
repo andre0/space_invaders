@@ -8,6 +8,7 @@ public class GameOverScript : MonoBehaviour
     public GameObject playAgain;
     public GameObject quit;
     public GameObject gameOver;
+    public GameObject winner;
 
 
     // Start is called before the first frame update
@@ -32,8 +33,19 @@ public class GameOverScript : MonoBehaviour
             enemyGrid.GetComponent<EnemyGrid>().enabled = false;
             playAgain.SetActive(true);
             quit.SetActive(true);
-            gameOver.SetActive(true);
+            
+            if (LevelManager.instance.lives < 1)
+            {
+                gameOver.SetActive(true);
+            }
+
+            if (LevelManager.instance.score == 1100)
+            {
+                winner.SetActive(true);
+            }
+            
 
         }
+
     }
 }
