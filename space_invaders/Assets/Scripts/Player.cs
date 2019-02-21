@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 
     private float fireRate;
 
+    private GameObject[] getCount;
+    public int count = 0;
+
     void Awake()
     {
         instance = this;
@@ -34,13 +37,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
+        getCount = GameObject.FindGameObjectsWithTag("blaster");
+        count = getCount.Length;
 
         if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (Time.time > fireRate)
             {
-                Shoot();
-                fireRate = Time.time + 1.3f; // 1.3 is the firerate
+                if (count == 0)
+                {
+                    Shoot();
+                }
+                
+                fireRate = Time.time + 0.1f; // 1.3 is the firerate
             }
         }
     }
