@@ -6555,6 +6555,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  onLoseGame:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   blasterPrefab: {fileID: 3029039350024731054, guid: aa87bbaa652bc424aafcd42ca0b84aad,
     type: 3}
 --- !u!61 &2124782424

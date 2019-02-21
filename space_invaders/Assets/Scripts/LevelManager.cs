@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
         }
 
         Player.instance.onLoseLife.AddListener(() => UpdateLives(--lives));
+        Player.instance.onLoseGame.AddListener(() => UpdateLives(0));
     }
 
     void UpdateScore(int addPoints)

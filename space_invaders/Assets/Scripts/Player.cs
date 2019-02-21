@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public static Player instance;
 
     public UnityEvent onLoseLife;
+    public UnityEvent onLoseGame;
 
     private Collider2D playerCollider;
     private Rigidbody2D playerRigidbody;
@@ -73,7 +74,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.CompareTag("Enemy"))
         {
-            // game over
+            onLoseGame.Invoke();
         }
     }
 
