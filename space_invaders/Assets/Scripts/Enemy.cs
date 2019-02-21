@@ -19,8 +19,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        enemyRigidbody = GetComponent<Rigidbody2D>();
-        enemyCollider = GetComponent<Collider2D>();
+        enemyRigidbody = this.GetComponent<Rigidbody2D>();
+        enemyCollider = this.GetComponent<Collider2D>();
 
         randomFire = Time.time + Random.Range(0.0f, 100.0f);
 
