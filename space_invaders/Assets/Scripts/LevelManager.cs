@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class LevelManager : MonoBehaviour
 {
-    public GameObject keep;
+ 
     public static LevelManager instance;
 
     public int score = 0;

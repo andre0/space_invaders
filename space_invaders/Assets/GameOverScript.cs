@@ -24,7 +24,7 @@ public class GameOverScript : MonoBehaviour
 
     public void checkGame()
     {
-        if (LevelManager.instance.lives < 1 || LevelManager.instance.score > 0)
+        if (LevelManager.instance.lives < 1 || LevelManager.instance.score == 1100)
         {
 
             Time.timeScale = 0;
